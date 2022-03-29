@@ -1,0 +1,41 @@
+//- this always has to be extended;
+extends /form-head
+
+//- optional, if you want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:600px;
+        }
+
+
+//- your form data here
+block prepend form
+    //- start your form content here
+    p.header Please enter the following data:
+    table
+        tr.mandatory
+            td
+                label Age
+            td
+                +Text("age", age)
+        tr.mandatory
+            td
+                label Shoe size
+            td
+                +Number("shoesize", shoesize, "35", "55")
+        tr.mandatory 
+            td
+                label Gender
+            td
+                #male(style="float:left")
+                    +RadioButton("gender", "m", gender, "Male")
+                #female(style="float:left")
+                    +RadioButton("gender", "f", gender, "Female")
+                #other
+                    +RadioButton("gender", "o", gender, "Other")
+        tr.mandatory
+            td 
+                label YesNo
+            td
+                +CheckBox("yesno", yesno)

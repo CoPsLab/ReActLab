@@ -1,0 +1,19 @@
+html
+  head
+    link(rel='stylesheet', href=baseURL+'/css/login.css')
+  body(style='visibility:hidden' onload='document.body.style.visibility="visible"')
+    div#logoDiv
+      img#logoImg(src=baseURL+"/assets/layout/logo-right.png")
+    div#content
+        if failed
+          div.loginFailedDiv Login failed
+        form(action=loginURL + "/login", method="post")
+            div.formRow
+                label(for='name').formLabel Name:
+                input#name.form-control(type='email', placeholder='email' name='username').loginField
+            div.formRow
+                label(for='pw').formLabel Password:
+                input#pw.form-control(type='password' name='password').loginField
+            div.formRow
+                input(type="hidden", name="forward", value=from)
+                button.btn.btn-primary(type='submit').submitButton Log In    

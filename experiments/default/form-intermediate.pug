@@ -1,0 +1,21 @@
+//- this always has to be extended;
+extends /form-head
+
+//- optional, if you want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:600px;
+        }
+
+
+//- your form data here
+block prepend form
+    //- start your form content here
+    p.header Please enter the following data:
+    table
+        tr
+            td
+                label Any input (optional)
+            td
+                +Text("optionalInput", optionalInput)

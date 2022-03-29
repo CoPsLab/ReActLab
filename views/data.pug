@@ -1,0 +1,20 @@
+extends /page-template
+
+block append header
+        title Data
+        link(rel='stylesheet', href='../css/data.css')    
+
+block append content
+    button#back.button(type="submit", onclick='history.back()') Zurück
+    form#download(action=loginURL + "/downloadData", method="post")
+        button.button(type="submit") Download Zip        
+    div.separator
+    ul.fileList 
+        each val in files  
+            li
+                span.date #{val.time}
+                a(class=val.finished, href="."+dataDir+'/'+ val.name+ ".csv") #{val.name}
+                        
+            
+            
+    

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+mixin RadioButton(group, name, prevValue, label, image, isRequired)
+    - var isChecked = name==prevValue
+    - var isVisible = !image
+    label(for=name) 
+        if (!label)
+            - label = name    
+        if (image)
+            input(type="radio", id=name, value=name, name=group, checked=isChecked, required=isRequired, style="position:absolute;opacity:0;width:0;height:0")
+            | <img #{image} id="#{name}_img" class="RadioImage" alt=#{label} onclick="document.getElementById('#{name}').checked=true; markSelectedRadioImages()"/>
+        else 
+            | #{label}
+            input(type="radio", id=name, value=name, name=group, checked=isChecked, required=isRequired, onChange="markSelectedRadioImages()")
+
+mixin CheckBox(name, prevValue, isRequired)
+    - var isChecked = prevValue == 'on'
+    input(type="checkbox", id=name, name=name, checked=isChecked, required=isRequired)     
+
+mixin Text(name, value, isRequired)
+    input(type="text", name=name, value=value, required=isRequired)
+
+mixin Number(name, value, min, max, isRequired)
+    input(type="number", name=name, value=value, min=min, max=max, required=isRequired)
+
+- var onLoadFunction = "hideLoading();"
+
+html(lang="en")    
+    head
+        meta(charset="UTF-8")
+        link(rel="stylesheet", href=baseURL+"/css/style.css")
+        script.
+            function hideLoading(){
+                document.getElementById('loadingDiv').style.display='none';
+                document.getElementById('content').style.display='block';                
+                markSelectedRadioImages();
+            }
+            function markSelectedRadioImages(){
+                Array.prototype.forEach.call(document.getElementsByClassName("RadioImage"), element => {
+                    var rbId = element.id.substring(0, element.id.length-4);
+                    if(document.getElementById(rbId).checked){
+                        element.style.border="1px solid darkred"
+                        element.style.borderRadius="10px"
+                    } else {
+                        element.style.border="1px solid white"
+                        element.style.borderRadius="0px"
+                    }
+
+                })
+            }
+        block header
+    
+    body(onload=onLoadFunction)
+        div#logoSpace
+            img#leftLogo(src=baseURL+"/assets/layout/logo-left.png")
+            div #{headerText}
+            img#rightLogo(src=baseURL+"/assets/layout/logo-right.png")
+        div#loadingDiv
+            img(src=baseURL + '/assets/layout/loading.gif')        
+        div#content(style='display:none')
+            block content

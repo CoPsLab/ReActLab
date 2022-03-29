@@ -1,0 +1,90 @@
+#mainForm {
+  padding: 0 10px 0 10px;
+  margin: 0 auto;
+}
+
+input[type="text"] {
+  width: 90%;
+  margin: 0;
+}
+
+input[type="number"] {
+  margin: 0;
+  width: 90%;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+table {
+  width: 100%;
+}
+
+p.header {
+  text-align: center;
+  padding: 10px;
+}
+
+td label {
+  text-align: left;
+}
+
+td label.widelabel {
+  width: 500px;
+  margin-left: 20px;
+}
+
+td {
+  border-bottom: 0.5px solid #e5e5e5;
+  padding-bottom: 3px;
+}
+
+/* tr.optional label {
+    color: green;
+} */
+
+tr.mandatory label {
+  color: firebrick;
+}
+
+tr.mandatory input:invalid {
+  background-color: rgba(255, 0, 0, 0.15);
+}
+
+tr.mandatory input:valid {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+#buttons {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+#buttons button {
+  height: 40px;
+  width: 150px;
+}
+
+#submit:hover {
+  box-shadow: 0px 0px 10px rgba(69, 194, 58, 0.5);
+}
+
+#abort {
+  margin-left: 50px;
+}
+
+#abort:hover {
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+}
+
+.invalidIdLine {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: red;
+}

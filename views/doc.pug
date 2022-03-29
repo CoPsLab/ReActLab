@@ -1,0 +1,6 @@
+html
+  head
+    title="HowTo"
+    link(rel='stylesheet' href='./css/github-markdown.css')    
+  body(style='visibility:hidden' onload='document.body.style.visibility="visible"')
+    include:markdown-it(plugins=['markdown-it-anchor']) ../README.md

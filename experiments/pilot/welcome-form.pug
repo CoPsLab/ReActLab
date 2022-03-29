@@ -1,0 +1,16 @@
+extends /welcome-template
+    
+block append header 
+    if (!headerText)
+        - var  headerText = "Willkommen"
+    link(rel="stylesheet", href=baseURL+"/css/welcome.css")    
+
+block append pages
+    div.page#page1 
+        h1 Welcome!
+        
+        small   
+            p This is a pilot experiment. 
+            p During the experiment, you will see different stimuli appearing in the middle of the screen at random times. If you see a single dot, your task is to tap or click anywhere on the screen as fast as you can. 
+            p Click only if a single dot is appearing! If you see two dots simultaneously, just ignore them. 
+            </small></p>

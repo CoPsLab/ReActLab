@@ -1,0 +1,22 @@
+//- this always has to be extended;
+extends /form-head
+
+//- optional, if you want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:600px;
+        }
+
+//- your form data here
+block prepend form
+    //- start your form content here
+    section
+        h1 Kurzes Päuschen
+
+    small 
+        p Super, Sie haben den Block geschafft!
+        p Sollten Sie etwas müde oder erschöpft sein, machen Sie gerne eine kurze Pause.
+        br
+        p Sobald Sie für den nächsten Block bereit sind, klicken Sie auf <b>weiter</b> um mit dem Experiment fortzufahren.
+    

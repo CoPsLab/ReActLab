@@ -1,0 +1,10 @@
+extends /welcome-template
+    
+block append header 
+    if (!headerText)
+        - var  headerText = "Welcome"
+    link(rel="stylesheet", href=baseURL+"/css/welcome.css")    
+
+block append pages
+    div.page#page1 
+        p Welcome to the example experiment.        

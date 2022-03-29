@@ -1,0 +1,45 @@
+extends /page-template
+
+block append header
+    link(rel='stylesheet' href=baseURL + '/css/sessions.css')
+    title Sessions
+  
+block append content        
+    form(action=loginURL + "/requestNewSession", method="post").leftButton    
+        button.btn.btn-primary(type='submit').submitButton Request New
+    form(action=loginURL + "/invite", method="get").centerLeftButton
+        button.btn.btn-primary(type='submit').submitButton Invite
+    form(action=loginURL + "/data", method="get").centerRightButton
+        button.btn.btn-primary(type='submit').submitButton Show Data
+    form(action=loginURL + "/logout", method="get").rightButton
+        button.btn.btn-primary(type='submit').submitButton Logout
+            
+    div.separator
+    div#sessions 
+        p.label.center Open Invitations
+        ul.sessionList.started
+            each val in openSessions
+                if (!val.accepted)
+                    li.unstarted
+                        a(href=baseURL + "/qr/" + val.invitationId) 
+                            img.qrLogo(src=baseURL + '/assets/layout/qrLogo.png')
+                        a(href=baseURL + "/invitation/"+val.invitationId, title=val.creationTime) #{val.invitationId}
+
+    div.separator
+    p.label.center Accepted Invitations
+    form(action='./downloadConsentData', method='post')                    
+        button.downloadButton#downloadSessions(type='submit') Download Consent Data
+    form(action='./downloadQuestionnaireData', method='post')                    
+        button.downloadButton#downloadQuestionnaires(type='submit') Download Questionnaire Data
+    form(action='./downloadData', method='post')                    
+        button.downloadButton#downloadData(type='submit') Download Experiment Data
+                
+    ul.sessionList
+        each val in openSessions
+            if (val.accepted)
+                li.finished 
+                    a(href='./consentData/'+val.invitationId) #{val.invitationId}
+            
+        
+
+        

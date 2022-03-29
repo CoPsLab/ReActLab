@@ -1,0 +1,96 @@
+@import "style.css";
+p.label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  color: var(--uni-color);
+}
+
+ul.sessionList {
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  columns: 3;
+  width: 750px;
+}
+
+li {
+  width: 250px;
+}
+
+.center {
+  text-align: center;
+}
+
+.sessionList {
+  font-family: "Courier New", Courier, monospace;
+}
+
+#content {
+  padding-top: 15px;
+}
+
+a:hover {
+  text-shadow: 1px 1px 5px;
+}
+
+img.qrLogo {
+  margin-left: -15px;
+  padding-right: 5px;
+}
+
+.finished a {
+  color: green;
+  text-decoration: none;
+}
+
+.unstarted a {
+  color: red;
+  text-decoration: none;
+}
+
+.leftButton {
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.centerLeftButton {
+  float: left;
+  width: 100px;
+  margin-left: 125px;
+}
+
+.centerRightButton {
+  float: left;
+  width: 100px;
+  margin-left: 125px;
+}
+
+.rightButton {
+  float: right;
+  margin-right: 10px;
+}
+
+.downloadButton {
+  height: 40px;
+  width: 120px;
+  margin-top: -47px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#downloadData {
+  position: relative;
+  float: right;
+}
+
+#downloadSessions {
+  position: relative;
+  float: left;
+}
+
+#downloadQuestionnaires {
+  position: relative;
+  float: left;
+}

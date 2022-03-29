@@ -1,0 +1,8 @@
+html
+    head
+    body
+        div(style='width:300px;margin:0 auto;text-align:center')
+            h3 You have been invited to the #{expName} experiment.
+            p In order to participate, please either click on the link below or scan the QR code
+            img(src=imgSrc, style='width:'+imgWidth+'px;margin:0 auto;')
+            a(href=imgSrc) #{imgSrc}

@@ -1,0 +1,26 @@
+html
+    head
+        title QR Code
+        link(rel="stylesheet", href="../css/qr.css")
+    body(style='visibility:hidden' onload='document.body.style.visibility="visible"')
+        div.content
+            if (showInterfaceForm)
+                form#interfaceForm(action="./"+experimentId )
+                    label Select network interface:
+                    select(name="interface", onchange="this.form.submit()") 
+                        option(value="") Default
+                        each pair in adresses
+                            if (interface == pair.address)
+                                <option value="#{pair.address}" selected>#{pair.name}: #{pair.address}</option>
+                            else 
+                                option(value=pair.address) #{pair.name}: #{pair.address}        
+                
+            a(href=link, title=link)
+                div.svgImage.hoverable
+                    != svg
+            a.experimentLink.btnLink.hoverable(href=link, title=link) Go to experiment
+            
+            a.qrLink.btnLink.hoverable(href='./' +experimentId+ '.png?interface='+interface, title=href='./' +experimentId+ '.png', download=experimentId) Download QR code
+
+            p.experimentLink.plainLink #{link}
+            

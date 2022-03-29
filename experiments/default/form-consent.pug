@@ -1,0 +1,50 @@
+//- this always has to be extended;
+extends /consent-head
+
+//- optional, if you want to specify more css, load scripts, etc.
+block append head
+    if (!headerText)
+        - var  headerText = "Consent"
+    style.
+        body {
+            width:500px;
+        }
+        #generateCodeInfo{
+            margin:10px;
+            padding:0 5px;
+            border:1px dotted lightgray;
+
+        }
+        #generateCodeInfo th, #generateCodeInfo td{
+            border-bottom: 1px solid lightgray;
+            padding:2px 0;
+        }
+        
+
+//- your form data here
+block prepend form 
+    p Please generate your personal code using the pattern described below.
+    p You will be using this code to access the experiment or to request deletion of your data.
+    table
+        tr.mandatory 
+            td 
+                label Personal Code
+            td 
+                +Text("participantId", participantId, true)                
+    #generateCodeInfo
+        table
+            tr
+                th.center Character(s) 
+                th.center Value
+            tr
+                td.center 1
+                td first letter of your mother's first name
+            tr
+                td.center 2
+                td last letter of your father's first name
+            tr
+                td.center 3-4
+                td second and third letter of your last name
+            tr
+                td.center(style='border:none') 5-6
+                td(style='border:none') last two digits of the year you were born

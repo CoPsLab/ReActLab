@@ -1,0 +1,36 @@
+//- this always has to be extended;
+extends /form-head
+
+//- optional, if yo want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:600px;
+        }
+        label{
+            width:100%;
+        }
+
+//- your form data here
+block prepend form 
+    //- start your form content here
+
+    h1 Done!
+    
+    small
+        p Nun bitten wir Sie die letzten Fragen noch ehrlich zu beantworten:
+
+    section                
+
+        table
+            colgroup
+                col(width="50%")
+                col
+            
+            tr
+                td
+                    label Sonstige Kommentare bzw. was Sie gerne noch loswerden möchten:
+                td
+                    input(type="text", name="end_comments", value=end_comments)
+  
+    

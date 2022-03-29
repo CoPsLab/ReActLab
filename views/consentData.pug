@@ -1,0 +1,14 @@
+extend /page-template
+
+block append header
+    title Consent data
+    link(rel="stylesheet", href=baseURL + "/css/consentData.css")
+    
+block append content
+    button#backButton(type='submit', onclick='history.back()') Zurück
+    div.separator
+    table#dataTable
+        each kv in data             
+            tr.dataRow
+                td.dataEntry.dataKey #{kv[0]}
+                td.dataEntry.dataValue #{kv[1]}

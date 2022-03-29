@@ -1,0 +1,49 @@
+extends /page-template
+    
+block append header 
+    - var onLoadFunction = "init();" + onLoadFunction
+    title Willkommen
+    script.
+        var currentPage = 1;
+        
+        function init(){
+            if (!document.getElementById("page" + (currentPage+1))){                            
+                document.getElementById("done").style.display = "inline";            
+                document.getElementById('nextButton').style.display = "none";                  
+            }
+        }
+
+        function nextPage(inc){
+            var page = document.getElementById("page" + (currentPage));
+            if (page)
+                page.style.display = "none";
+            page = document.getElementById("page" + (currentPage+inc));
+            if (page){
+                page.style.display = "inline";    
+                currentPage += inc;
+            }
+
+            page = document.getElementById("page" + (currentPage-1));
+            document.getElementById('prevButton').disabled = page ? undefined : 'disabled' ;
+            
+            page = document.getElementById("page" + (currentPage+1));
+            if (page == null){
+                document.getElementById("done").style.display = "inline";
+                document.getElementById('nextButton').style.display = "none";           
+            } else {
+                document.getElementById('nextButton').style.display = "inline";
+                document.getElementById("done").style.display = "none";
+            }            
+        }
+
+block append content
+    block pages
+    form#buttons(action=invitationId)
+        button#prevButton(type="button", onclick='nextPage(-1)', disabled="disabled") Zurück        
+        button#nextButton(type="button", onclick='nextPage(1)', style="display:inline") Weiter            
+        input(type="hidden", name="postWelcome", value="true")
+        button#done(type="submit", style="display:none") Start
+        
+
+
+        

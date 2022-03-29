@@ -1,0 +1,23 @@
+extends /page-template
+    
+block append header
+    title Please enter data
+    if (!headerText)
+        - var headerText = "Consent Form"
+    block head
+        link(rel="stylesheet", href=baseURL+"/css/form-head.css", type="text/css")
+
+block append content
+    case err
+        when '1'
+            p.invalidIdLine Bitte füllen Sie alle Pflichtfelder aus 
+        when '2'
+            p.invalidIdLine Invalid self-generated ID:<br><br>#{idReq}
+        when '3'
+            p.invalidIdLine Invalid self-generated ID.<br><br>Please contact the experimenter.
+    form.formClass#mainForm(action="./"+invitationId, method="post")
+        block form
+            #buttons
+                button#abort(type="button", onclick="window.location='" + baseURL + "/abort'") Abbruch
+                button#submit(type="submit") Weiter
+                

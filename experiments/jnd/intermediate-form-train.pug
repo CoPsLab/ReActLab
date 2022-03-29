@@ -1,0 +1,23 @@
+//- this always has to be extended;
+extends /form-head
+
+//- optional, if you want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:600px;
+        }
+
+//- your form data here
+block prepend form
+    //- start your form content here
+    section
+        h1 Kurzes Päuschen
+
+    small 
+        p Sehr gut, die Testdurchgänge sind hiermit beendet. 
+        p <b>Sie starten nun mit dem tatsächlichen Experiment. </b>
+        br
+        p Falls Sie noch Fragen zum Experiment haben sollten, wenden Sie sich bitte an die Versuchsleitung.
+        p Sobald Sie für den nächsten Block bereit sind, klicken Sie auf <b>weiter</b> um mit dem Experiment fortzufahren.
+    

@@ -1,0 +1,271 @@
+//- this always has to be extended;
+extends /form-head
+
+//- optional, if yo want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:600px;
+        }
+
+//- your form data here
+block prepend form
+    //- start your form content here
+    section
+        table
+            colgroup
+                col(width="50%")
+                col                 
+            tr.mandatory
+                td
+                    label(style="width:100%") Bitte geben Sie Ihr <b>Geschlecht</b> an:
+                td
+                    select(name="gender", id="gender")
+                        option(value="none") --Bitte auswählen--
+                        option(value="male") männlich
+                        option(value="female") weiblich
+                        option(value="divers") divers
+               
+        
+            tr.mandatory
+                td
+                    label(style="width:100%") Bitte geben Sie Ihr <b>Alter</b> an (in Jahren):
+                td
+                    +Text("age", age)
+
+            tr.mandatory
+                td
+                    label(style="width:100%") Bitte geben Sie Ihren bisherigen <b>höchsten Bildungsabschluss</b> an:
+                td  
+                    select(name="education", id="education")
+                        option(value="none") --Bitte auswählen--
+                        option(value="master") Masterabschluss
+                        option(value="bachelor") Bachelorabschluss
+                        option(value="abitur") Fachhochschulreife oder Hochschulreife (Abitur)
+                        option(value="mittlere reife") Mittlere Reife
+                        option(value="hauptschule") Hauptschulabschluss
+                        option(value="ausbildung") Abgeschlossene Berufsausbildung
+                        option(value="education_other") Anderer      
+                    
+            tr.optional
+                td
+                    label Anderer
+                td
+                    input(type="text", name="education_other", value=education_other)
+    
+        
+    section
+        table
+            colgroup
+                col(width="50%")
+                col
+                col
+            tr.mandatory
+                td 
+                    small Bitte geben Sie an, ob Sie <b>Links- oder Rechtshänder</b> sind:
+                td
+                    +RadioButton("handedness", "lefthanded", handedness, "Links")
+                td    
+                    +RadioButton("handedness", "righthanded", handedness, "Rechts")
+                    
+                
+                    
+                                       
+    
+                
+    section
+        br
+        small
+            p Im folgenden sehen Sie eine Liste mit verschiedenen Tätigkeiten. Bitte geben Sie an, welche Hand Sie für die jeweilige Tätigkeit bevorzugen, indem Sie den jeweiligen Punkt in der entsprechende Spalte auswählen. Wenn Sie in einem Fall keine Hand bevorzugen, wählen Sie bitte beide Punkte für "Rechts" und "Links" aus. 
+            p Versuchen Sie bitte, alle Fragen zu beantworten. Lassen Sie nur dann eine Lücke, wenn Sie mit einer Aufgabe überhaupt keine Erfahrung haben.
+
+        table
+            colgroup
+                col(width="70%")
+                col(width="8%")
+                col(width="2%")
+                col(width="8%")
+                col(width="2%")
+                col(width="8%")
+                col(width="2%")
+            tr
+                td
+                    small schreiben:
+                td
+                    +RadioButton("writing", "writingleft", writing, "Links")
+                td    
+                    +RadioButton("writing", "writingright", writing, "Rechts")  
+                td
+                    +RadioButton("writing", "writingboth", writing, "Beide")
+
+            tr
+                td
+                    small zeichnen:
+                td
+                    +RadioButton("drawing", "drawingleft", drawing, "Links")
+                td    
+                    +RadioButton("drawing", "drawingright", drawing, "Rechts")  
+                td
+                    +RadioButton("drawing", "drawingboth", drawing, "Beide")
+
+            tr
+                td
+                    small werfen:
+                td
+                    +RadioButton("throwing", "throwingleft", throwing, "Links")
+                td    
+                    +RadioButton("throwing", "throwingright", throwing, "Rechts")  
+                td
+                    +RadioButton("throwing", "throwingboth", throwing, "Beide")
+
+
+            tr
+                td
+                    small schneiden:
+                td
+                    +RadioButton("cutting", "cuttingleft", cutting, "Links")
+                td    
+                    +RadioButton("cutting", "cuttingright", cutting, "Rechts")  
+                td
+                    +RadioButton("cutting", "cuttingboth", cutting, "Beide")
+
+            tr
+                td
+                    small Zahnbürste:
+                td
+                    +RadioButton("tooth", "toothleft", tooth, "Links")
+                td    
+                    +RadioButton("tooth", "toothright", tooth, "Rechts")  
+                td
+                    +RadioButton("tooth", "toothboth", tooth, "Beide")
+
+            tr
+                td
+                    small Messer (ohne Gabel):
+                td
+                    +RadioButton("knife", "knifeleft", knife, "Links")
+                td    
+                    +RadioButton("knife", "kniferight", knife, "Rechts")  
+                td
+                    +RadioButton("knife", "knifeboth", knife, "Beide")
+
+            tr
+                td
+                    label Löffel:
+                td
+                    +RadioButton("spoon", "spoonleft", spoon, "Links")
+                td    
+                    +RadioButton("spoon", "spoonright", spoon, "Rechts")  
+                td
+                    +RadioButton("spoon", "spoonboth", spoon, "Beide")
+
+
+            tr
+                td
+                    small Besen (obere Hand):
+                td
+                    +RadioButton("broom", "broomleft", broom, "Links")
+                td    
+                    +RadioButton("broom", "broomright", broom, "Rechts")  
+                td
+                    +RadioButton("broom", "broomboth", broom, "Beide")
+
+            tr
+                td
+                    small Streichholz anzünden (Streichholz):
+                td
+                    +RadioButton("match", "matchleft", match, "Links")
+                td    
+                    +RadioButton("match", "matchright", match, "Rechts")  
+                td
+                    +RadioButton("match", "matchboth", match, "Beide")
+
+
+            tr
+                td
+                    small Schachtel aufmachen (Deckel):
+                td
+                    +RadioButton("lid", "lidleft", lid, "Links")
+                td    
+                    +RadioButton("lid", "lidright", lid, "Rechts")  
+                td
+                    +RadioButton("lid", "lidboth", lid, "Beide")
+
+
+            tr
+                td
+                    small Computermaus bedienen:
+                td
+                    +RadioButton("mouse", "mouseleft", mouse, "Links")
+                td    
+                    +RadioButton("mouse", "mouseright", mouse, "Rechts")  
+                td
+                    +RadioButton("mouse", "mouseboth", mouse, "Beide")
+
+            tr
+                td
+                    small Auf das Tablet tippen:
+                td
+                    +RadioButton("tablet", "tabletleft", tablet, "Links")
+                td    
+                    +RadioButton("tablet", "tabletright", tablet, "Rechts")  
+                td
+                    +RadioButton("tablet", "tabletboth", tablet, "Beide")
+
+            tr
+                td
+                    small Welchen Fuß bevorzugen Sie zum Kicken?:
+                td
+                    +RadioButton("foot", "footleft", foot, "Links")
+                td    
+                    +RadioButton("foot", "footright", foot, "Rechts")  
+                td
+                    +RadioButton("foot", "footboth", foot, "Beide")
+
+
+            tr
+                td
+                    small Welches Auge bevorzugen Sie, wenn Sie fotografieren?:
+                td
+                    +RadioButton("eye", "eyeleft", eye, "Links")
+                td    
+                    +RadioButton("eye", "eyeright", eye, "Rechts")  
+                td
+                    +RadioButton("eye", "eyeboth", eye, "Beide")
+
+            
+
+    
+
+    section
+        p
+        table
+            colgroup
+                col(width="63%")
+                col 
+                col
+            tr.mandatory
+                td
+                    small Benötigen Sie eine <b>Sehhilfe</b>?
+                td
+                    +RadioButton("glass", "glass_yes", glass, "Ja")
+                td
+                    +RadioButton("glass", "glass_no", glass, "Nein")
+                
+            tr.optional
+                td 
+                    small Falls ja, tragen Sie Ihre Brille oder Kontaktlinsen <b>im Moment</b>?
+                td
+                    +RadioButton("glassnow", "glassnow_yes", glassnow, "Ja")
+                td
+                    +RadioButton("glassnow", "glassnow_no", glassnow, "Nein")
+                    
+                    
+                
+
+        //tr.optional
+            td
+                label Geschwindigkeit der Internetverbindung 
+            td
+                input(type="text", name="speed of internetconnection", value=speed of internetconnection)
+

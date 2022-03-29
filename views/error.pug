@@ -1,0 +1,10 @@
+extends /page-template
+
+block append header 
+    if (redirectUrl)
+        meta(http-equiv="refresh", content=timeout+";url=" + redirectUrl)            
+    title Error
+    link(rel="stylesheet", href=baseURL + "/css/error.css")
+
+block append content
+    h1 #{msg}

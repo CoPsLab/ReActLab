@@ -1,0 +1,18 @@
+extends /page-template
+
+block append header
+        title Invite Participants
+        link(rel="stylesheet", href=baseURL + "/css/invite.css")
+
+block append content
+    if invalid  
+        p There were invalid entries, please check
+    p Enter invitees mail addresses
+        br
+        | (one entry per line)        
+    form(action="invite", method="post")
+        textarea(name="receivers", cols="30", rows="10")
+            if invalid
+                = invalid
+        br
+        button(type="submit") Send invitation mail(s)

@@ -1,0 +1,136 @@
+//- this always has to be extended;
+extends /consent-head
+
+//- optional, if you want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:600px;
+        }
+
+//- your form data here
+block prepend form 
+    //- start your form content here
+
+    h3 EINWILLIGUNGSERKLÄRUNG
+
+    section
+        p  
+            small Inhalt, Vorgehensweise, Risiken und Ziel von diesem Forschungsprojekt sowie die Befugnis zur Einsichtnahme in die erhobenen Daten wurde mir ausreichend erklärt.
+        table
+            tr.mandatory
+                td
+                    label.widelabel Ja, ich wurde aufgeklärt.
+                td
+                    <input type="checkbox" name="consent" id="consent_yes" value=consent_yes><br>
+            
+            tr.optional
+                td
+                    label.widelabel Ich habe keine weiteren Fragen:
+                td
+                    <input type="checkbox" name="consentquestions" id="questions_answered" value=questions_answered><br>
+
+            //tr.optional
+                td
+                    label Ich hatte zusätzliche Fragen:
+                td
+                    input(type="text", name="questions", value=questions)
+            tr.mandatory
+                td
+                    label.widelabel Ich habe ein normales oder auf normal korrigiertes Sehvermögen.
+                td
+                    <input type="checkbox" name="consentvision" id="normalvision" value=normalvision><br>
+            
+            tr.mandatory
+                td
+                    label.widelabel Ich stehe nicht unter Einfluss von Medikamenten, Alkohol oder anderen Substanzen, die mein Gleichgewichtssinn oder mein Sehvermögen beeinflussen könnten.
+                td
+                    <input type="checkbox" name="consentalcohol" id="alcohol_no" value=alcohol_no><br>
+    
+
+    section
+        p   
+            small Ich hatte Gelegenheit Fragen zu stellen und habe hierauf Antwort erhalten.
+        p
+            small Ich hatte ausreichend Zeit, mich für oder gegen die Teilnahme am Projekt zu entscheiden und mir ist bekannt, dass ich für den Erwerb von Versuchspersonenstunden auch an solchen Projekten (z.B. Praktika, Übungen) teilnehmen kann, die keine durch die Ethikkommission beratungspflichtigen Projekte am Menschen sind.
+        p
+            small Eine Kopie der Patienteninformation und Einwilligungserklärung habe ich erhalten.
+        
+    
+        table
+            tr.mandatory
+                td
+                    label.widelabel <b>Ich willige in die Teilnahme am Forschungsprojekt ein.</b>
+                td
+                    <input type="checkbox" name="informedconsent" id="informed_yes" value=informed_yes><br>
+    
+            //tr.mandatory
+                td
+                    label Name Proband/in
+                td
+                    input(type="text", name="participantName", value=participantName)
+
+            //tr.mandatory
+                td
+                    label Ort, Datum
+                td
+                    input(type="text", name="participationdate", value=participationdate)            
+            
+            //tr.optional
+                td 
+                    label your name
+                td 
+                    input(type="text", name="participantName", value=participantName)
+        
+
+    h3 Information und Einwilligungserklärung zum Datenschutz
+    section
+        small 
+            p Bei wissenschaftlichen Studien werden persönliche Daten und medizinische Befunde über Sie erhoben. Die Speicherung, Auswertung und Weitergabe dieser studienbezogenen Daten erfolgt nach gesetzlichen Bestimmungen und setzt vor Teilnahme an der Studie folgende freiwillige Einwilligung voraus:
+            ol 
+                li Ich erkläre mich damit einverstanden, dass im Rahmen dieser Studie erhobene Daten/Krankheitsdaten auf Fragebögen und elektronischen Datenträgern aufgezeichnet und ohne Namensnennung verarbeitet werden.
+                br
+                li Außerdem erkläre ich mich damit einverstanden, dass eine autorisierte und zur Verschwiegenheit verpflichtete Person (z.B. des Auftraggebers, der Universität) in meine erhobenen personenbezogenen Daten Einsicht nimmt, soweit dies für die Überprüfung des Projektes notwendig ist. Für diese Maßnahme entbinde ich den Arzt von der ärztlichen Schweigepflicht.
+                br
+                li Ich habe verstanden, dass ich das Recht habe, Auskunft (einschließlich unentgeltlicher Überlassung einer Kopie) über die mich betreffenden personenbezogenen Daten zu erhalten sowie deren Berechtigung oder Löschung zu verlangen.
+
+        table
+            tr.mandatory
+                td
+                    label.widelabel <b>Ich willige in die oben beschriebene Verwendung meiner Daten ein.</b>
+                td
+                    <input type="checkbox" name="dataprotection" id="data_yes" value=data_yes><br>
+    
+    section
+        small
+            p <b>Persönlicher Code:</b> Bitte generieren Sie Ihren persönlichen Code nach dem unten beschriebenen Muster. Sie verwenden diesen Code, um auf das Experiment zuzugreifen oder die Löschung Ihrer Daten zu beantragen.</p></small>
+            
+    
+
+        table
+            tr.mandatory 
+                td 
+                    label Persönlicher Code
+                td 
+                    input(type="text", name="participantId", value=participantId, required, autocomplete="off")
+
+    #generateCodeInfo
+        small
+            table
+                tr
+                    th.center Buchstabe(n)
+                    th Inhalt
+                tr
+                    td.center 1
+                    td der erste Buchstabe des Vornamens Ihrer Mutter (z.B. Erica = <b> E </b>)
+                tr
+                    td.center 2
+                    td der letzte Buchstabe des Vornamens Ihres Vaters (z.B. Heinz = <b> Z </b>)
+                tr
+                    td.center 3-4
+                    td die letzten beiden Buchstaben Ihrer Lieblingsfarbe (z.B. Grün = <b> UN </b>)
+                tr
+                    td.center(style='border:none') 5-6
+                    td(style='border:none') die Hausnummer des Hauses in dem Sie aufgewachsen sind (bei einer Stelle schreiben Sie eine 0 davor, z.B. 9 = <b>09</b>, bei mehr als zwei Stellen geben Sie bitte die letzten beiden an, z.B. 117 = <b>17</b>)
+
+       

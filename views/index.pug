@@ -1,0 +1,29 @@
+html
+  head
+    title=title
+    link(rel="stylesheet", href="./css/index.css")
+    script(src='./phaser/phaser.min.js')
+    script(src='./socket.io/socket.io.js')
+    if (exp != null)
+      script(type='text/javascript').
+        var preloadAssets = #{preload};
+        var experimentId = '#{exp}';
+  body(style='visibility:hidden',onload='document.body.style.visibility="visible"')
+    if exp == null
+      div.centeredTitle
+        img#leftLogo(src="./assets/layout/logo-left.png")
+        span.textContent
+          if (insider)
+            a(href="./private/sessions") Request new Experiment ID          
+            form.selfIdForm.add(action=".")
+              label or enter your self-generated id here:
+              input(type="text", name="exp")  
+          else 
+            form.selfIdForm(action=".")
+                label Enter your self-generated id here:
+                input(type="text", name="exp")  
+    else   
+      div#phaser-canvas     
+      script(src='js/'+gamejs, type='module')
+        
+      

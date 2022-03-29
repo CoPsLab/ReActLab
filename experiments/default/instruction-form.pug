@@ -1,0 +1,30 @@
+//- this always has to be extended;
+extends /form-head
+
+//- optional, if yo want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:400px;
+        }
+
+//- your form data here
+block prepend form 
+    //- start your form content here
+    table
+        tr.mandatory 
+            td 
+                label Age                
+            td 
+                input(type="text", name="age", value=age, required)
+        tr.mandatory
+            td  
+                label Height in cm
+            td 
+                input(type="text", name="height", value=height, required)
+        tr.optional
+            td 
+                label Favourite Color
+            td 
+                input(type="text", name="favColor", value=favColor)
+    

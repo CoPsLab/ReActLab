@@ -1,0 +1,109 @@
+//- this always has to be extended;
+extends /form-head
+
+//- optional, if yo want to specify more css, load scripts, etc.
+block append head
+    style.
+        body {
+            width:600px;
+        }
+        label{
+            width:100%;
+        }
+
+//- your form data here
+block prepend form 
+    //- start your form content here
+
+    h1 Geschafft!
+    
+    small
+        p <b>Das Experiment ist nun beendet.</b> Sie dürfen die Brille nun absetzen.
+        p Bitte bearbeiten Sie jetzt noch den kurzen anschließenden Fragebogen. Wenden Sie sich anschließend an die Versuchsleitung, um Ihre Vergütung zu erhalten.
+        p Nun bitten wir Sie die letzten Fragen noch ehrlich zu beantworten:
+
+    section
+        table
+            colgroup
+                col(width="50%")
+                col
+            tr.mandatory 
+                td 
+                    label Haben Sie die Instruktionen des Experiments verstanden und wussten, was Sie tun mussten?                
+                td
+                    +RadioButton("end_instructions", "instructions_clear", end_instructions, "Ja")
+                    br
+                td
+                    +RadioButton("end_instructions", "instructions_unclear", end_instructions, "Nein")
+                    br
+
+            tr.mandatory 
+                td 
+                    label Sind Ihnen bei der Durchführung des Experiments merkwürdige Verzögerungen/ Internetprobleme/ oder andere Störungen aufgefallen, die die Durchfühung beeinflusst haben könnten?                
+                td
+                    +RadioButton("end_disturbance", "disturbance_yes", end_disturbance, "Ja")
+                    br
+                td
+                    +RadioButton("end_disturbance", "disturbance_no", end_disturbance, "Nein")
+                    br
+        
+        table
+            colgroup
+                col(width="50%")
+                col
+            tr
+                td
+                    label Wenn ja, welche Störung(en)/ Auffälligkeit(en) hatten Sie in Ihrem Experiment?
+                td
+                    input(type="text", name="end_dis2", value=end_dis2)
+            tr
+                td
+                    label Wie häufig war dies ungefähr der Fall?
+                td
+                    input(type="text", name="end_dis3", value=end_dis3)
+
+            tr
+                td
+                    label Haben Sie eine Vermutung was in diesem Experiment untersucht wird?
+                td
+                    input(type="text", name="end_idea", value=end_idea)
+
+        table
+            colgroup
+                col(width="50%")
+                col
+            
+            tr.mandatory 
+                td 
+                    p
+                        small Haben Sie ernsthaft am Experiment teilgenommen, sodass die Daten in der weiteren Analyse berücksichtigt werden können oder wollten Sie sich lediglich das Experiment anschauen und haben sich durchgeklickt?                
+                td
+                    +RadioButton("seriousnesscheck", "seriousness_yes", seriousnesscheck, "Ja, ich habe ernsthaft teilgenommen.")
+                    br
+                td
+                    +RadioButton("seriousnesscheck", "seriousness_no", seriousnesscheck, "Nein, ich habe nicht ernsthaft teilgenommen.")
+                    br
+                    
+
+        table
+            colgroup
+                col(width="50%")
+                col
+            
+            tr
+                td
+                    label Sonstige Kommentare bzw. was Sie gerne noch loswerden möchten:
+                td
+                    input(type="text", name="end_comments", value=end_comments)
+    
+    section
+        small
+            p Das Experiment ist nun abgeschlossen!
+            p Wie zu Beginn der Studie versprochen, gibt es für Ihre Teilnahme eine Belohnung. Sie werden bei der Abgabe des Tablets die monetäre Belohnung in Höhe von 10€ erhalten.
+            
+    
+        b Vielen Dank nochmals für Ihre Teilnahme!
+    
+        p
+            small Klicken Sie auf <b>weiter</b> um das Experiment abzuschließen und löschen (wie in der Einladungsmail beschrieben) Ihre Internetverbindung. 
+    

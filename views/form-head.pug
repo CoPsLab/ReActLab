@@ -1,0 +1,21 @@
+extends /page-template
+
+block append header
+    title Please enter data
+    if (!headerText)
+        - var headerText = 'Fragebogen'
+    block head
+        link(rel="stylesheet", href=baseURL+"/css/form-head.css", type="text/css")       
+    
+block append content    
+    if (insufficientInfo)
+        p.invalidIdLine Bitte füllen Sie alle Pflichtfelder aus
+    form(action=baseURL+"/postQuestionnaire/"+exp, method="post" id="mainForm", class=formclass, autocomplete="off")
+        block form
+            #buttons
+                if (!hideAbort)
+                    button#abort(type="button", onclick="window.location='" + baseURL + "/abort'") Abbruch
+                if (questionnaireId)
+                    input.hidden(type="hidden", name="questionnaireId", value=questionnaireId)
+                button#submit(type="submit") #{submitText || "Weiter"} 
+                

@@ -1,0 +1,23 @@
+@import "style.css";
+#backButton {
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+#dataTable {
+    font-size: 11pt;
+    width: 95%;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+.dataEntry {
+    border-bottom: 1px dotted gray;
+    padding: 10px 0px 10px 5px;
+}
+
+.dataKey {
+    font-weight: bold;
+}

@@ -1,0 +1,23 @@
+@import "style.css";
+body {
+    width: 500px;
+}
+
+#content {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: large;
+}
+
+textarea {
+    box-shadow: 0px 0px 1px lightgray;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px;
+    width: 90%;
+}
+
+button {
+    margin: 10px auto 0px;
+    width: 200px;
+}

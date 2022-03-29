@@ -1,0 +1,68 @@
+@import "style.css";
+#content {
+    padding-top: 15px;
+}
+
+span.label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    position: absolute;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
+::marker {
+    font-size: 1em;
+    color: gray;
+}
+
+ul.fileList {
+    font-family: 'Courier New', Courier, monospace;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    width: 800px;
+}
+
+a {
+    transition-duration: 0.1s;
+    text-decoration: none;
+    color: gray;
+}
+
+a.finished {
+    color: green;
+}
+
+a.started {
+    color: coral;
+}
+
+a.unstarted {
+    color: red;
+}
+
+a:hover {
+    text-shadow: 1px 1px 5px;
+}
+
+li .size {
+    display: none;
+}
+
+li .date {
+    padding-right: 10px;
+    font-size: 8pt;
+}
+
+#download {
+    float: left;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+#back {
+    float: right;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}

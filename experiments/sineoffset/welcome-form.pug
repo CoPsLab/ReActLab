@@ -1,0 +1,37 @@
+extends /welcome-template
+    
+block append header 
+    if (!headerText)
+        - var  headerText = "Willkommen"
+    link(rel="stylesheet", href=baseURL+"/css/welcome.css")    
+
+block append pages
+    div.page#page1 
+    
+        h1 Herzlich Willkommen!
+
+        small 
+            p und vielen Dank, dass Sie sich die Zeit nehmen, um an dieser Studie teilzunehmen. 
+
+            p <b>Teilnahmevoraussetzung:</b> Um an der folgenden Studie teilnehmen zu können müssen sie Deutsch sprechen, mindestens 18 Jahre alt sein und ein normales oder korrigiertes Sehvermögen aufweisen.
+
+            p <b>Dauer und Aufwandsentschädigung:</b> Die Dauer der Studie beträgt insgesamt ca. 40 Minuten. Als Aufwandsentschädigung für die Teilnahme erhalten Sie gegen Ende der Studie 8€. 
+
+            p <b>Möglicher Nutzen:</b> Mit Ihrer Teilnahme an dieser Studie unterstützen Sie die wissenschaftliche Forschung und erhalten einen Einblick in die aktuelle kognitionspsychologische Forschung. Die Studie dient ausschließlich wissenschaftlichen Zwecken.
+
+            p <b>Datenschutz:</b> Ihre Daten werden anonym und streng vertraulich behandelt. Das bedeutet, dass Ihre Daten nicht auf Sie zurückgeführt werden können. Dennoch bitten wir Sie, Ihre Angaben korrekt und ehrlich zu tätigen. Die demographischen Angaben, wie beispielsweise das Alter oder Geschlecht, lassen keinen eindeutigen Schluss auf Ihre Person zu. Es wird ein individueller Probanden-Code erzeugt, mit dem Sie die Löschung Ihrer in einer Untersuchung erhobenen Daten veranlassen können. 
+
+            p <b>Freiwilligkeit:</b> Die Teilnahme an dieser Studie ist freiwillig. Es steht Ihnen zu jedem Zeitpunkt frei Ihre Teilnahme abzubrechen ohne dass Ihnen daraus Nachteile entstehen. Ihr Einverständinis können Sie jederzeit und ohne die Angabe von Gründen widerrufen. Durch die Teilnahme an dieser Studie entsteht kein Risiko, das über die Risiken des alltäglichen Lebens hinausgeht.
+
+            p <b>Offene Fragen:</b> Sollten Sie noch Fragen zu dieser Studie haben, wenden Sie sich bitte an den Versuchsleiter oder per Mail an: lisa.buechler@uni-ulm.de </small></p>
+
+        
+    
+
+
+    div.page#page2
+        small
+            p <b>Vorbereitung der Untersuchung:</b> Suchen Sie sich zur Bearbeitung der Studie bitte einen ruhigen Ort, an dem Sie möglichst ungestört sind und an dem Sie das Tablet ablegen können. Legen Sie das Tablet horizontal, also der Länge nach vor sich ab. Achten Sie dabei darauf, dass keine Spiegelungen auf dem Tablet entstehen, die Ihre Sicht einschränken könnten. Bitte nutzen Sie nicht ihren Computer oder ihr Smartphone zur Bearbeitung der Studie, sondern das Tablet, das sie vom Versuchsleiter erhalten haben. 
+            p <b>Ablauf der Untersuchung:</b> Sie werden gleich gebeten Ihr Einverständnis zu der Studie zu geben und einen Probanden-Code zu generieren. Anschließend werden Sie einen Fragebogen zu Ihren demographischen Variablen ausfüllen. Dann startet das Experiment, welches aus mehreren Durchgängen bestehen wird. Verwenden Sie zur Bearbeitung des Experiments bitte nur den Zeigefinger ihrer dominanten Hand. Sobald Sie das Experiment gestartet haben, ist es nicht mehr möglich es zu unterbrechen und zu einer anderen Zeit fortzuführen. Es wird währenddessen jedoch regelmäßig die Möglichkeit für Pausen geben. 
+            p Bitte drücken Sie nun auf <b>start</b>, um die Studie zu beginnen. 
+        
